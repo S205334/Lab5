@@ -27,7 +27,7 @@ public class DictionaryDAO {
 			ResultSet res = st.executeQuery(sql);
 			
 			while(res.next() ) {
-				// Aggiungere word alla struttura dati
+				// Aggiungo parole alla struttura dati
 				dictionary.add(res.getString("nome").toLowerCase());
 			}
 			
@@ -40,7 +40,7 @@ public class DictionaryDAO {
 		}
 	}
 	
-	public boolean isCorrect(String input) {
+	public boolean isValid(String input) {
 	
 		try {
 			Connection conn = ConnectDB.getConnection();

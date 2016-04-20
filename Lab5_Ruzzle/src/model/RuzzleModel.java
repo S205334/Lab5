@@ -7,7 +7,7 @@ import db.DictionaryDAO;
 public class RuzzleModel {
 	
 	private int n = 16;
-	private Griglia gr = new Griglia();;
+	private Griglia gr;
 	private List<WordSet> solutions;
 	
 	public RuzzleModel() {}
@@ -26,13 +26,11 @@ public class RuzzleModel {
 		return solutions;
 	}
 	
-	public List<WordSet> getSolutions() {
-		return solutions;
-	}
 	
 	public List<String> getGriglia() {
 		List<String> caratteri = new ArrayList<>();	
 		String alpha = "abcdefghilmnopqrstuvz";
+		gr = new Griglia();
 		
 		for(int i = 0; i < n; i++) {
 			int rand = (int) (Math.random()*21);
@@ -48,19 +46,18 @@ public class RuzzleModel {
 	
 	
 	public void cercaParole(String w, Pos p, List<Pos> path) {
-
-		Pos s;
 		
-		if(isAWord(w) && w.length() > 1 && !solutions.equals(w)) {
-			solutions.add(new WordSet(w, path));
+		if(isAWord(w) && w.length() > 1 && !solutions.contains(w)) {
+
+			solutions.add(new WordSet(w, new ArrayList<Pos>(path)));
 			System.out.println(solutions.get(solutions.size()-1).toString());
 			
 		}
 			// alto
 			if (p.getRiga() > 1) {
-				s = new Pos (p.getRiga()-1, p.getCol());
+				Pos s = new Pos (p.getRiga()-1, p.getCol());
 				w += gr.get(s);
-				if(isCorrect(w) && !path.equals(s)) {
+				if(isValid(w) && !path.contains(s)) {
 					path.add(s);
 					cercaParole( w, s, path);
 					path.remove(s);
@@ -71,9 +68,9 @@ public class RuzzleModel {
 			
 			// basso
 			if (p.getRiga() < 4) {
-				s = new Pos (p.getRiga()+1, p.getCol());
+				Pos s = new Pos (p.getRiga()+1, p.getCol());
 				w += gr.get(s);
-				if(isCorrect(w) && !path.equals(s)) {
+				if(isValid(w) && !path.contains(s)) {
 					path.add(s);
 					cercaParole( w, s, path);
 					path.remove(s);
@@ -84,9 +81,9 @@ public class RuzzleModel {
 			
 			// destra
 			if (p.getCol() < 4) {
-				s = new Pos (p.getRiga(), p.getCol()+1);
+				Pos s = new Pos (p.getRiga(), p.getCol()+1);
 				w += gr.get(s);
-				if(isCorrect(w) && !path.equals(s)) {
+				if(isValid(w) && !path.contains(s)) {
 					path.add(s);
 					cercaParole( w, s, path);
 					path.remove(s);
@@ -97,9 +94,9 @@ public class RuzzleModel {
 			
 			// sinistra
 			if (p.getCol() > 1) {
-				s = new Pos (p.getRiga(), p.getCol()-1);
+				Pos s = new Pos (p.getRiga(), p.getCol()-1);
 				w += gr.get(s);
-				if(isCorrect(w) && !path.equals(s)) {
+				if(isValid(w) && !path.contains(s)) {
 					path.add(s);
 					cercaParole( w, s, path);
 					path.remove(s);
@@ -110,9 +107,9 @@ public class RuzzleModel {
 			
 			// obliquo alto sx
 			if (p.getCol() > 1 && p.getRiga() > 1 ) {
-				s = new Pos (p.getRiga()-1, p.getCol()-1);
+				Pos s = new Pos (p.getRiga()-1, p.getCol()-1);
 				w += gr.get(s);
-				if(isCorrect(w) && !path.equals(s)) {
+				if(isValid(w) && !path.contains(s)) {
 					path.add(s);
 					cercaParole( w, s, path);
 					path.remove(s);
@@ -123,9 +120,9 @@ public class RuzzleModel {
 			
 			// obliquo alto dx
 			if (p.getCol() < 4 && p.getRiga() > 1 ) {
-				s = new Pos (p.getRiga()-1, p.getCol()+1);
+				Pos s = new Pos (p.getRiga()-1, p.getCol()+1);
 				w += gr.get(s);
-				if(isCorrect(w) && !path.equals(s)) {
+				if(isValid(w) && !path.contains(s)) {
 					path.add(s);
 					cercaParole( w, s, path);
 					path.remove(s);
@@ -136,9 +133,9 @@ public class RuzzleModel {
 			
 			// obliquo basso dx
 			if (p.getCol() < 4 && p.getRiga() < 4 ) {
-				s = new Pos (p.getRiga()+1, p.getCol()+1);
+				Pos s = new Pos (p.getRiga()+1, p.getCol()+1);
 				w += gr.get(s);
-				if(isCorrect(w) && !path.equals(s)) {
+				if(isValid(w) && !path.contains(s)) {
 					path.add(s);
 					cercaParole( w, s, path);
 					path.remove(s);
@@ -149,9 +146,9 @@ public class RuzzleModel {
 			
 			// obliquo basso sx
 			if (p.getCol() > 1 && p.getRiga() < 4 ) {
-				s = new Pos (p.getRiga()+1, p.getCol()-1);
+				Pos s = new Pos (p.getRiga()+1, p.getCol()-1);
 				w += gr.get(s);
-				if(isCorrect(w) && !path.equals(s)) {
+				if(isValid(w) && !path.contains(s)) {
 					path.add(s);
 					cercaParole( w, s, path);
 					path.remove(s);
@@ -167,9 +164,9 @@ public class RuzzleModel {
 		return dao.isAWord(w);	
 	}
 	
-	public boolean isCorrect(String w) {
+	public boolean isValid(String w) {
 		DictionaryDAO dao = new DictionaryDAO();
-		return dao.isCorrect(w);	
+		return dao.isValid(w);	
 	}
 	
 	//public static void main(String[] args) {

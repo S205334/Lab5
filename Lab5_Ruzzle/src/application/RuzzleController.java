@@ -96,13 +96,14 @@ public class RuzzleController {
     void doGenera(ActionEvent event) {
     	
     	listParole.getItems().clear();
-    	//Integer size = spinSize.getValue() ; 
     	
+    	// genero la griglia
     	List<String> lettere = model.getGriglia();
     	
     	for(int i = 0; i<16 ; i++)
     		labels.get(i).setText(lettere.get(i).toUpperCase());
     	
+    	// avvio la ricerca
     	Task<List<WordSet>> task = new Task<List<WordSet>>() {
     		
 			@Override
@@ -140,7 +141,6 @@ public class RuzzleController {
     void doView(MouseEvent event)  {
     	
     	int index = listParole.getSelectionModel().getSelectedIndex();
-    	System.out.println(solutions.get(index).toString());
     	
     	for(int riga = 0; riga < 4; riga++)
     		for(int col = 0; col < 4; col++)
@@ -151,10 +151,6 @@ public class RuzzleController {
     }
     		
     
-    //public void setModel(RuzzleModel model) {
-    	//this.model = model;
-    	
-    //}
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
@@ -178,6 +174,7 @@ public class RuzzleController {
         assert L16 != null : "fx:id=\"L16\" was not injected: check your FXML file 'Ruzzle.fxml'.";
         assert prgBar != null : "fx:id=\"prgBar\" was not injected: check your FXML file 'Ruzzle.fxml'.";
 
+        // inserisco labels in una lista
         labels.add(L1);
         labels.add(L2);
         labels.add(L3);
