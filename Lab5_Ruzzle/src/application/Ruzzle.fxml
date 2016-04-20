@@ -1,7 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.BorderPane?>
-	
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RuzzleController">
-	<!-- TODO Add Nodes -->
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RuzzleController">
+   <center>
+      <GridPane alignment="CENTER" minHeight="250.0" minWidth="460.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="250.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="40.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="200.0" minHeight="200.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ListView fx:id="listParole" onMouseClicked="#doView" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </ListView>
+            <Button fx:id="btGenera" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" minWidth="150.0" mnemonicParsing="false" onAction="#doGenera" text="Genera" GridPane.columnIndex="1" GridPane.valignment="TOP" />
+            <GridPane alignment="CENTER" style="-fx-background-color: white; -fx-border-color: grey;" GridPane.rowSpan="2">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <GridPane.margin>
+                  <Insets right="40.0" />
+               </GridPane.margin>
+               <children>
+                  <Label fx:id="L11" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="L2" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L3" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L4" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="3">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L5" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L6" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L7" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L8" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L9" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L1" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L10" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L13" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L14" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L15" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L12" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="L16" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: grey;" text="A" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </GridPane>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="40.0" right="40.0" top="40.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+   <bottom>
+      <HBox spacing="20.0" BorderPane.alignment="TOP_LEFT">
+         <children>
+            <ProgressBar fx:id="prgBar" prefHeight="18.0" prefWidth="521.0" progress="0.0">
+               <HBox.margin>
+                  <Insets bottom="5.0" />
+               </HBox.margin>
+            </ProgressBar>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
 </BorderPane>
